@@ -32,5 +32,6 @@ function validateCustomer(customer) {
   
   return Joi.validate(customer, schema);
 }
+exports.customerSchema = customerSchema;
 exports.Customer = Customer;
 exports.validate = validateCustomer;

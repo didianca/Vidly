@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const {Genre, validate} = require('../models/customer');
+const {Genre, validate} = require('../models/genre');
 //get api/genres --> (get all the genres in a list)
 router.get('/', async (req, res) => {   //checked with solution
-  const genres = await getGenres();
-  // SOLUTION: const genres = await Genre.find().sort('name');
+  const genres = await Genre.find().sort('name');
   res.send(genres);
 });
 //POST /api/genres --> post a new genre and add /it to the list of genres
@@ -46,9 +45,5 @@ router.get('/:id', async (req, res) => {   //check with solution
   if (!genre) return res.status(404).send('The genre with the given ID was not found');
   res.send(genre);
 });
-async function getGenres() {
-  return await Genre
-    .find()
-    .sort({name:1});
-}
+
 module.exports = router;
