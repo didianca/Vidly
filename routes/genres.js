@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const {Genre, validate} = require('../models/genre');
 //get api/genres --> (get all the genres in a list)
 router.get('/', async (req, res) => {   //checked with solution
@@ -12,8 +11,8 @@ router.post('/', async (req, res) => {     //check and changed with solution
   const {error} = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   
-  let genre = new Genre({name:req.body.name});
-  genre = await genre.save();
+  const genre = new Genre({name:req.body.name});
+  await genre.save();
   
   res.send (genre);
 });
