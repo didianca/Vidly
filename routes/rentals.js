@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const Fawn = require('fawn');
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
+//TODO: put auth && admin after testing
 
 Fawn.init(mongoose);
 
@@ -52,7 +55,7 @@ router.post('/', async (req, res) => {
     res.send(rental);
   } catch (e) {
     res.status(500).send('Something went wrong...');
-  };
+  }
 });
 //PUT /api/rentals/:id
 router.put('/:id', async (req, res) => {

@@ -1,3 +1,8 @@
+require('express-async-errors');
+
+const winston= require('winston');
+require('winston-mongodb');
+const error= require('./middleware/error');
 const config = require('config');
 const express = require('express');
 const customers = require('./routes/customers');
@@ -11,8 +16,8 @@ const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
 
-if(!config.get('mySuperUltraSecretKey')) {
-  console.log('FATAL ERROR: mySuperUltraSecretKey is not defined.');
+if(!config.get('jwtPrivateKey')) {
+  console.log('FATAL ERROR: myPrivateKey is not defined.');
   process.exit(1); //code 0 means success, giving it anything else --> 1 in this case <-- will terminate the process
 }
 
@@ -28,6 +33,7 @@ app.use('/api/movies',movies);
 app.use('/api/rentals',rentals);
 app.use('/api/users',users);
 app.use('/api/auth',auth);
+app.use(error);
 
 app.get('/',(req,res)=>{
   res.send('Hello World! This is Didi learning Express ^^!!!');
@@ -36,4 +42,4 @@ app.get('/',(req,res)=>{
 
 //PORT
 const port =  process.env.PORT || 3000;
-app.listen(3000,() => console.log(`Listening on port ${port}..`));
+app.listen(port,() => console.log(`Listening on port ${port}..`));

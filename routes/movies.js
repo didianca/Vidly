@@ -2,6 +2,9 @@ const {Movie, validate} = require('../models/movie');
 const express = require('express');
 const router = express.Router();
 const {Genre} = require('../models/genre');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
+//TODO: put auth && admin after testing
 
 //GET all
 router.get('/', async (req, res) => {
@@ -60,7 +63,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 //GET by id
-router.get('/:id', async (req, res) => {   //check with solution
+router.get('/:id', async (req, res) => {
   const movie = await Movie.findOne({_id : req.params.id});
   if (!movie) return res.status(404).send('The movie with the given ID was not found');
   res.send(movie);

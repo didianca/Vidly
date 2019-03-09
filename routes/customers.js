@@ -43,7 +43,7 @@ router.delete('/:id', async (req, res) => {
 });
 //GET by id
 router.get('/:id', async (req, res) => {   //check with solution
-  const customer = await Customer.findById(req.params.id);
+  const customer = await Customer.findByIdAndRemove(req.params.id);
   if (!customer) return res.status(404).send('The customer with the given ID was not found');
   res.send(customer);
 });
