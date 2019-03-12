@@ -16,18 +16,18 @@ const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
 
-process.on('uncaughtException',(err)=>{
+process.on('uncaughtException',(ex)=>{
  console.log('WE GOT AN UNCAUGHT EXCEPTION');
-  logger.info(err.message, err);
-});
-
-process.on('unhandledRejection',(ex)=>{
-  console.log('WE GOT AN UNHANDLED REJECTION');
   logger.info(ex.message, ex);
 });
 
+process.on('unhandledRejection',(ex)=>{
+  throw ex
+});
+
+
 //throw new Error ('Weird error... O_O');
-//const p = Promise.reject(new Error('Unhandled Rejection.Ched your promises ... :('));
+//const p = Promise.reject(new Error('Unhandled Rejection.Check your promises ... :('));
 //p.then(()=>console.log('Done'));
 
 if(!config.get('jwtPrivateKey')) {
