@@ -1,8 +1,8 @@
 require('express-async-errors');
 
-const winston= require('winston');
-require('winston-mongodb');
+const logger = require('./middleware/logger');
 const error= require('./middleware/error');
+const winston= require('winston');
 const config = require('config');
 const express = require('express');
 const customers = require('./routes/customers');
@@ -15,6 +15,20 @@ const mongoose = require('mongoose');
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
+
+process.on('uncaughtException',(err)=>{
+ console.log('WE GOT AN UNCAUGHT EXCEPTION');
+  logger.info(err.message, err);
+});
+
+process.on('unhandledRejection',(ex)=>{
+  console.log('WE GOT AN UNHANDLED REJECTION');
+  logger.info(ex.message, ex);
+});
+
+//throw new Error ('Weird error... O_O');
+//const p = Promise.reject(new Error('Unhandled Rejection.Ched your promises ... :('));
+//p.then(()=>console.log('Done'));
 
 if(!config.get('jwtPrivateKey')) {
   console.log('FATAL ERROR: myPrivateKey is not defined.');
