@@ -27,14 +27,14 @@ describe('/api/returns', () => {
         token = new User().generateAuthToken();
 
 
-        movie = new Movie({
-            _id: movieId,
-            title: '12345',
-            dailyRentalRate: 2,
-            genre: {name: '12345'},
-            numberInStock: 10
-        });
-        await movie.save();
+       movie = new Movie({
+          _id: movieId,
+          title: '12345',
+          dailyRentalRate: 2,
+          genre: {name: '12345'},
+          numberInStock: 10
+       });
+       await movie.save();
 
         rental = new Rental({
             customer: {
@@ -121,4 +121,3 @@ describe('/api/returns', () => {
     });
 })
 ;
-//
