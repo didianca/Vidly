@@ -52,8 +52,9 @@ describe('/api/returns', () => {
     });
     afterEach(async () => {
         server.close();
-        await Rental.remove({});
         await Movie.remove({});
+        await Rental.remove({});
+
     });
 
     it('should return 401 if client is not logged in', async () => {
@@ -117,7 +118,7 @@ describe('/api/returns', () => {
     it('should increase the movie stock if input is valid', async () => {
         await exec();
         const movieInDb = await Movie.findById(movie._id);
-        expect(movieInDb.numberInStock).toBe(movie.numberInStock + 1);
+        expect(movieInDb.numberInStock).toBe(movie.numberInStock ++);
     });
 })
 ;
