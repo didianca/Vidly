@@ -3,7 +3,6 @@ const {User} = require('../../models/user');
 const {Genre} = require('../../models/genre');
 let server;
 
-
 describe('auth middleware', () => {
     beforeEach(() => {
         server = require('../../index');

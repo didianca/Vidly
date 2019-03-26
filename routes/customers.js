@@ -1,6 +1,7 @@
-const {Customer, validate} = require('../models/customer');
+const {Customer, validateCustomer} = require('../models/customer');
 const express = require('express');
 const router = express.Router();
+const validate = require('../middleware/validate');
 
 //GET all
 router.get('/', async (req, res) => {
@@ -8,9 +9,7 @@ router.get('/', async (req, res) => {
   res.send(customers);
 });
 //POST new
-router.post('/', async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.post('/', validate(validateCustomer),async (req, res) => {
   
   const customer = new Customer({
     name: req.body.name,
@@ -22,10 +21,7 @@ router.post('/', async (req, res) => {
   res.send(customer);
 });
 //PUT updateBYid
-router.put('/:id', async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-  
+router.put('/:id', validate(validateCustomer),async (req, res) => {
   const customer = await Customer.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
     phone: req.body.phone,

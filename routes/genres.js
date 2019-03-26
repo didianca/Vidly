@@ -1,10 +1,10 @@
 const validateObjectId = require('../middleware/validateObjectId');
+const validate = require('../middleware/validate');
 const express = require('express');
 const router = express.Router();
-const {Genre, validate} = require('../models/genre');
+const {Genre, validateGenre} = require('../models/genre');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
-const mongoose = require('mongoose');
 //TODO: put auth && admin after testing
 
 //get api/genres
@@ -13,20 +13,14 @@ router.get('/', async (req, res) => {
     res.send(genres);
 });
 //POST /api/genres
-router.post('/', auth,async (req, res) => {
-    const {error} = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-
+router.post('/', [auth,validate(validateGenre)],async (req, res) => {
     const genre = new Genre({name: req.body.name});
     await genre.save();
 
     res.send(genre);
 });
 // PUT/update /api/genres/:id
-router.put('/:id', async (req, res) => {
-    const {error} = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-
+router.put('/:id',validate(validateGenre), async (req, res) => {
     const genre = await Genre.findByIdAndUpdate(req.params.id, {
         name: req.body.name
     }, {

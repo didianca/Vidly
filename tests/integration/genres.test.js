@@ -39,7 +39,8 @@ describe('/api/genres', () => {
             expect(res.body).toHaveProperty('_id', genre._id.toString());
         });
         it('should return 404 if invalid id is passed', async () => {
-            await request(server).get('/api/genres/1').catch((e) => {
+            await request(server).get('/api/genres/1')
+                .catch((e) => {
                 expect(e.status).toBe(404);
             });
         });
@@ -51,9 +52,6 @@ describe('/api/genres', () => {
         })
     });
     describe('POST /', () => {
-        //Define the happy path, and then in each  test we change
-        //one parameter that clearly aligns with the name of the
-        //test.
         let token;
         let name;
 
@@ -129,14 +127,14 @@ describe('/api/genres', () => {
                 })
 
         });
-        it('should return 400 if genres is less than 5 characters', async () => {
+        it('should return 400 if genre name is less than 5 characters', async () => {
             newName = '1234';
             await exec()
                 .catch((e) => {
                     expect(e.status).toBe(400)
                 })
         });
-        it('should return 400 if genre is greater than 50 characters', async () => {
+        it('should return 400 if genre name is greater than 50 characters', async () => {
             newName = new Array(52).join('a');
             await exec()
                 .catch((e) => {
