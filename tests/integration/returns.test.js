@@ -1,6 +1,6 @@
 const {Rental} = require('../../models/rental');
-const {User} = require('../../models/user');
 const {Movie} = require('../../models/movie');
+const {User} = require('../../models/user');
 const mongoose = require('mongoose');
 const request = require('supertest');
 const moment = require('moment');
@@ -52,9 +52,9 @@ describe('/api/returns', () => {
     });
     afterEach(async () => {
         server.close();
-        await Movie.remove({});
-        await Rental.remove({});
 
+        await Rental.remove({});
+        await Movie.remove({});
     });
 
     it('should return 401 if client is not logged in', async () => {
@@ -117,8 +117,8 @@ describe('/api/returns', () => {
     });
     it('should increase the movie stock if input is valid', async () => {
         await exec();
-        const movieInDb = await Movie.findById(movie._id);
-        expect(movieInDb.numberInStock).toBe(movie.numberInStock ++);
+        const movieInDb = await Movie.findById(movieId);
+        expect(movieInDb.numberInStock).toBe(movie.numberInStock + 1);
     });
 })
 ;
