@@ -5,9 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/tests" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f9a2f2f-4345-4bd7-aa71-a65be8bcf3f7" name="Default Changelist" comment="del start script for heroku testing&#10;??">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="7f9a2f2f-4345-4bd7-aa71-a65be8bcf3f7" name="Default Changelist" comment="del start script for heroku testing&#10;??" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -46,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -92,7 +90,7 @@
           <provider selected="true" editor-type-id="LogFileEditorProvider" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/custom-environment-variables.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
@@ -171,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-4" />
     <option name="width" value="1159" />
     <option name="height" value="1047" />
@@ -188,6 +186,11 @@
             <path>
               <item name="Vidly" type="b2602c69:ProjectViewProjectNode" />
               <item name="Vidly" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Vidly" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vidly" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Vidly" type="b2602c69:ProjectViewProjectNode" />
@@ -252,7 +255,7 @@
       <workItem from="1553783826489" duration="188000" />
       <workItem from="1554122970701" duration="274000" />
       <workItem from="1554123307826" duration="6106000" />
-      <workItem from="1554131305167" duration="620000" />
+      <workItem from="1554131305167" duration="2146000" />
     </task>
     <task id="LOCAL-00001" summary="fixed after loss">
       <created>1552154466271</created>
@@ -370,7 +373,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102184000" />
+    <option name="totallyTimeSpent" value="103710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -382,9 +385,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="0" width="1159" height="1047" extended-state="0" />
+    <frame x="-4" y="0" width="1159" height="1047" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2515611" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2515611" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -398,7 +402,7 @@
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32995495" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32995495" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4897413" visible="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4897413" visible="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5102587" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32995495" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -771,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/custom-environment-variables.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -798,6 +795,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/custom-environment-variables.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
