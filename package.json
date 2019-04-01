@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
-  "node": "10.15.3"
+    "node": "10.15.3"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.5.0",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.19",
     "nodemon": "^1.18.10",
