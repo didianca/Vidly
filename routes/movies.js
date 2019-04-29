@@ -37,6 +37,7 @@ router.post('/',validate(validateMovie), async (req, res) => {
 router.put('/:id', validate(validateMovie),async (req, res) => {
   const genre = await Genre.findOne({_id : req.body.genreId});
   if(!genre) return res.status(400).send('Invalid genre...');
+
   const movie = await Movie.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
     genre:{
